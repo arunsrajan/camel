@@ -10,7 +10,7 @@ public class AggregateEIP extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		from("ActiveMQ:queue:aggregate")
+		from("activemq:queue:aggregate")
 		.aggregate(new GroupedMessageAggregationStrategy())
 		.constant(true).completionSize(100)
 		.split(body())

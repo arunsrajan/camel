@@ -11,7 +11,7 @@ import org.apache.camel.model.dataformat.JacksonXMLDataFormat;
 import org.apache.camel.processor.aggregate.GroupedBodyAggregationStrategy;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class UnmarshallMarshall extends RouteBuilder {
 
 	JacksonXMLDataFormat jacksonDataFormat = new JacksonXMLDataFormat();
