@@ -95,6 +95,11 @@
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-ehcache-starter</artifactId>
 		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.camel.springboot</groupId>
+		  <artifactId>camel-spring-redis-starter</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -115,6 +120,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>springbootcamel</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
