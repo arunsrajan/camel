@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource(ignoreResourceNotFound = false, value = {"classpath:application.properties"})
+@PropertySource(ignoreResourceNotFound = true, value = {"classpath:application.properties"})
 public class SpringbootexampleApplication {
 
 	public static void main(String[] args) {
