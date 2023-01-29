@@ -3,7 +3,7 @@ package com.configjavatech.springbootexample;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
-//kafka-topics.bat --create --topic mytopic --bootstrap-server localhost:9092
+//kafka-topics.bat --create --topic mytopic --bootstrap-server kafka:9092
 
 //@Component
 public class KafkaRoute extends RouteBuilder {
