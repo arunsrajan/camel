@@ -66,7 +66,8 @@ public class ActiveMQTransacted extends RouteBuilder {
 //		.log("MyClientId2 ${body}");
 		
 		from("activemq:queue:idempotentorders?connectionFactory=#cf&acknowledgementModeName=CLIENT_ACKNOWLEDGE")
-		.idempotentConsumer(body()).idempotentRepository("kafkaidempotent").log("first ${body}");
+		//.idempotentConsumer(body()).idempotentRepository("kafkaidempotent")
+		.log("first ${body}");
 		
 		
 	}
