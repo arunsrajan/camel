@@ -10,7 +10,6 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsMessage;
-import org.apache.camel.processor.idempotent.kafka.KafkaIdempotentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActiveMQTransacted extends RouteBuilder {
 
-	KafkaIdempotentRepository kafkaIdempotentRepository = new KafkaIdempotentRepository("idempotentorders", "kafka:9092");
+	//KafkaIdempotentRepository kafkaIdempotentRepository = new KafkaIdempotentRepository("idempotentorders", "kafka:9092");
 	
 	@Autowired
 	CamelContext context;
@@ -33,7 +32,7 @@ public class ActiveMQTransacted extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		context.getRegistry().bind("kafkaidempotent", kafkaIdempotentRepository);
+		//context.getRegistry().bind("kafkaidempotent", kafkaIdempotentRepository);
 		
 //		from("activemq:queue:actmq?connectionFactory=#cf&acknowledgementModeName=CLIENT_ACKNOWLEDGE")
 //		.split(jsonpath("$..book[*]"))
