@@ -5,7 +5,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class SQLComponentRoute extends RouteBuilder {
 
 	@Bean("mysqlDataSource")
