@@ -12,7 +12,7 @@ public class RoutingSlipEIP extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("jetty://http://localhost:9080/routingslip")
+		from("jetty://http://0.0.0.0:1090/routingslip")
 		.setBody(constant(""))
 		.process(new Processor() {
 			Random rand = new Random(System.currentTimeMillis());

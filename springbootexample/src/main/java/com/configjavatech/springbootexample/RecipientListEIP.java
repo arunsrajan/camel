@@ -10,7 +10,7 @@ public class RecipientListEIP extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("jetty://http://localhost:9090/test")
+		from("jetty://http://0.0.0.0:1090/recipientlist")
 		.process(new Processor() {
 
 			@Override

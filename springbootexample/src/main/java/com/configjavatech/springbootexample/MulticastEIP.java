@@ -9,7 +9,7 @@ public class MulticastEIP extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		
-		from("jetty://http://localhost:9091/multicast")
+		from("jetty://http://0.0.0.0:1090/multicast")
 		.log("${body}")
 		.multicast().to("direct:firstep","direct:secondep","direct:thirdep");
 		

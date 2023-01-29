@@ -10,9 +10,9 @@ public class KafkaRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("file:C:/DEVELOPMENT/orders")
-		.to("kafka://orders?brokers=localhost:9092");
-		from("kafka://orders?brokers=localhost:9092")
+		from("file:/DEVELOPMENT/orders")
+		.to("kafka://orders?brokers=kafka:9092");
+		from("kafka://orders?brokers=kafka:9092")
 		.log("${body}")
 		.split(xpath("/orders/order"))
 			.choice()
@@ -21,7 +21,7 @@ public class KafkaRoute extends RouteBuilder {
 			.when(xpath("//order/type/text() = 'fruits'"))
 				.to("activemq:queue:fruits")
 			.otherwise()
-				.to("kafka://product?brokers=localhost:9092");
+				.to("kafka://product?brokers=kafka:9092");
 	}
 
 }

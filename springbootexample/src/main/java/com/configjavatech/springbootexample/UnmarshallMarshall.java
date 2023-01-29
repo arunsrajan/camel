@@ -11,7 +11,7 @@ import org.apache.camel.model.dataformat.JacksonXMLDataFormat;
 import org.apache.camel.processor.aggregate.GroupedBodyAggregationStrategy;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class UnmarshallMarshall extends RouteBuilder {
 
 	JacksonXMLDataFormat jacksonDataFormat = new JacksonXMLDataFormat();
@@ -19,7 +19,7 @@ public class UnmarshallMarshall extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		jacksonDataFormat.setUnmarshalType(Order.class);
-		from("file:C:/DEVELOPMENT/orders")
+		from("file:/DEVELOPMENT/orderstransform")
 		.split(xpath("/orders/order"))
 		.unmarshal(jacksonDataFormat)
 		.to("direct:datetime")

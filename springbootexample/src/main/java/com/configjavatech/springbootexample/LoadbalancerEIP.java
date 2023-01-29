@@ -16,7 +16,7 @@ public class LoadbalancerEIP extends RouteBuilder {
 //		.loadBalance().failover().to("http://localhost:9090/path1","http://localhost:9081/path2","http://localhost:9082/path3");
 //		
 		from("timer:server?period=2000")
-		.loadBalance().weighted(true, "4,2,1").to("http://localhost:9090/path1","http://localhost:9081/path2","http://localhost:9082/path3");
+		.loadBalance().weighted(true, "4,2,1").to("http://localhost:1090/path1","http://localhost:1090/path2","http://localhost:1090/path3");
 		
 		from("direct:url1")
 		.log("${body} url1");
@@ -28,13 +28,13 @@ public class LoadbalancerEIP extends RouteBuilder {
 		from("direct:url3")
 		.log("url3 ${body}");
 		
-		from("jetty://http://localhost:9090/path1")
+		from("jetty://http://0.0.0.0:1090/path1")
 		.log("path1");
 		
-		from("jetty://http://localhost:9081/path2")
+		from("jetty://http://0.0.0.0:1090/path2")
 		.log("path2");
 		
-		from("jetty://http://localhost:9082/path3")
+		from("jetty://http://0.0.0.0:1090/path3")
 		.log("path3");
 	}
 

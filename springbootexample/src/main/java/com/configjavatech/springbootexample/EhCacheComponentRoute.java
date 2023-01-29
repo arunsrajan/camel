@@ -11,7 +11,7 @@ public class EhCacheComponentRoute extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 
-		from("file:C:/DEVELOPMENT/products")
+		from("file:/DEVELOPMENT/products")
 		.split(body().tokenize("\n"))
 			.log("New Line ${body}")
 			.setBody().simple("${body.split(\",\")}")
@@ -22,12 +22,12 @@ public class EhCacheComponentRoute extends RouteBuilder {
 			.to("ehcache:products")
 		.end();
 		
-		from("jetty://http://localhost:1090/removeall")
+		from("jetty://http://0.0.0.0:1090/removeall")
 		.setHeader(EhcacheConstants.ACTION,constant(EhcacheConstants.ACTION_CLEAR))
 		.to("ehcache:products")
 		.setBody(constant("All keys and values removed successfully"));
 		
-		from("jetty://http://localhost:1090/get")
+		from("jetty://http://0.0.0.0:1090/get")
 		.log("${header[productid]}")
 		.setProperty("productid").header("productid")
 		.setBody(constant(""))
@@ -46,7 +46,7 @@ public class EhCacheComponentRoute extends RouteBuilder {
 			.end()
 		.log("${body}");
 		
-		from("jetty://http://localhost:1090/getall")
+		from("jetty://http://0.0.0.0:1090/getall")
 		.setBody(constant(""))
 		.setHeader(EhcacheConstants.ACTION,constant(EhcacheConstants.ACTION_GET_ALL))
 		.setHeader(EhcacheConstants.KEYS,header("productid"))
