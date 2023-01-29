@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ActiveMQTransacted extends RouteBuilder {
 
-	KafkaIdempotentRepository kafkaIdempotentRepository = new KafkaIdempotentRepository("idempotentorders", "localhost:9092");
+	KafkaIdempotentRepository kafkaIdempotentRepository = new KafkaIdempotentRepository("idempotentorders", "kafka:9092");
 	
 	@Autowired
 	CamelContext context;
