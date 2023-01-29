@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 //kafka-topics.bat --create --topic mytopic --bootstrap-server kafka:9092
 
-//@Component
+@Component
 public class KafkaRoute extends RouteBuilder {
 
 	@Override
