@@ -5,4 +5,5 @@ COPY target/springbootcamel.jar /opt/springboot/
 WORKDIR /opt/springboot/
 RUN cd /opt/springboot/
 EXPOSE 1090
+EXPOSE 8080
 CMD ["java","-jar","springbootcamel.jar","--spring.config.location=file:config/application.properties"]

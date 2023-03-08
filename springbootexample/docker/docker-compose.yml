@@ -1,93 +1,82 @@
-version: '3.9'
+version: '3'
+
 services:
-  redis-1:
-    image: redis:latest
-    hostname: redis-1
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis1:
+    image: redis
+    hostname: redis1
     ports:
-      - "6379:6379"
+      - "6371:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.2
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-1:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.2
+      - ./redis1data:/data
 
-  redis-2:
-    image: redis:latest
-    hostname: redis-2
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis2:
+    image: redis
+    hostname: redis2
     ports:
-      - "6380:6379"
+      - "6372:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.3
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-2:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.3
+      - ./redis2data:/data
 
-  redis-3:
-    image: redis:latest
-    hostname: redis-3
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis3:
+    image: redis
+    hostname: redis3
     ports:
-      - "6381:6379"
+      - "6373:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.4
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-3:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.4
+      - ./redis3data:/data
 
-  redis-4:
-    image: redis:latest
-    hostname: redis-4
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis4:
+    image: redis
+    hostname: redis4
     ports:
-      - "6382:6379"
+      - "6374:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.5
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-4:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.5
+      - ./redis4data:/data
 
-  redis-5:
-    image: redis:latest
-    hostname: redis-5
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis5:
+    image: redis
+    hostname: redis5
     ports:
-      - "6383:6379"
+      - "6375:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.6
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-5:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.6
+      - ./redis5data:/data
 
-  redis-6:
-    image: redis:latest
-    hostname: redis-6
-    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
+  redis6:
+    image: redis
+    hostname: redis6
     ports:
-      - "6384:6379"
+      - "6376:6379"
+    networks:
+      redisnet:
+        ipv4_address: 169.12.0.7
+    command: ["redis-server", "--port", "6379", "--cluster-enabled", "yes", "--cluster-config-file", "/data/nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes"]
     volumes:
-      - ./data/redis-6:/data
-    networks:
-      - redis-cluster
-    networks:
-      redis-cluster:
-        ipv4_address: 169.13.0.7
+      - ./redis6data:/data
 
 networks:
-  redis-cluster:
+  redisnet:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 169.13.0.0/16
+        - subnet: 169.12.0.0/24

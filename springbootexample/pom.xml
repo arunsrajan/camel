@@ -15,9 +15,7 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
-
 	<dependencyManagement>
-
 		<dependencies>
 			<!-- Camel BOM -->
 			<dependency>
@@ -29,38 +27,28 @@
 			</dependency>
 			<!-- ... other BOMs or dependencies ... -->
 		</dependencies>
-
 	</dependencyManagement>
-
-
 	<dependencies>
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-kafka-starter</artifactId>
 		</dependency>
-
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-activemq</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-activemq-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-http-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-jetty-starter</artifactId>
@@ -69,43 +57,43 @@
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-sql-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-jacksonxml-starter</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-jsonpath-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-ehcache-starter</artifactId>
 		</dependency>
-		
 		<dependency>
-		  <groupId>org.apache.camel.springboot</groupId>
-		  <artifactId>camel-spring-redis-starter</artifactId>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-redis-starter</artifactId>
 		</dependency>
-
 		<dependency>
-		  <groupId>org.apache.camel.springboot</groupId>
-		  <artifactId>camel-zookeeper-master-starter</artifactId>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-springboot</artifactId>
+			<version>2.17.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-management</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-zookeeper-master-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -123,7 +111,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>springbootcamel</finalName>
 		<plugins>
@@ -141,5 +128,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
